@@ -1,4 +1,4 @@
-package adrian.kuhn.a.trade.microservice.template.test
+package a.trade.microservice.template.test
 
 import a.trade.microservice.runtime_api.test.TestInterface
 
