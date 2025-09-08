@@ -1,6 +1,7 @@
 package adrian.kuhn.a.trade.microservice.template.test
 
 import a.trade.microservice.runtime_api.test.TestInterface
+import a.trade.microservice.template.test.TestInterfaceKtImpl
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
