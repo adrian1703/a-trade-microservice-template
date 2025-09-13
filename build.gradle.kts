@@ -12,6 +12,8 @@ repositories {
 dependencies {
     implementation("adrian.kuhn:a-trade-microservice-runtime-api:0.0.1")
     implementation("jakarta.ws.rs:jakarta.ws.rs-api:3.1.0")
+    implementation("org.springframework:spring-webflux:6.1.14")
+
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
 }

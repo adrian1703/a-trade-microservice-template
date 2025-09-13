@@ -1,21 +1,18 @@
 package a.trade.microservice.template.test
 
 import a.trade.microservice.runtime_api.RestApiPlugin
-import jakarta.ws.rs.GET
-import jakarta.ws.rs.Path
-import jakarta.ws.rs.Produces
-import jakarta.ws.rs.core.MediaType
+import a.trade.microservice.runtime_api.RuntimeApi
+import org.springframework.web.reactive.function.server.RouterFunction
+import org.springframework.web.reactive.function.server.ServerResponse
+import org.springframework.web.reactive.function.server.router
 
 class TestRestApiPlugin : RestApiPlugin {
-    override fun getRestResources(): List<Any?> {
-        return listOf(TestRestResource())
+
+    override fun getRouter(runtimeApi: RuntimeApi?): RouterFunction<ServerResponse> {
+        return router {
+            GET(
+                "/hello4"
+            ) { ServerResponse.ok().bodyValue("hello") }
+        }
     }
-}
-
-@Path("/test")
-class TestRestResource {
-
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    fun test() = "Test"
 }
