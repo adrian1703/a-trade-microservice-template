@@ -11,8 +11,10 @@ repositories {
 
 dependencies {
     implementation("adrian.kuhn:a-trade-microservice-runtime-api:0.0.1")
+    implementation("net.jcip:jcip-annotations:1.0")
     implementation("jakarta.ws.rs:jakarta.ws.rs-api:3.1.0")
     implementation("org.springframework:spring-webflux:6.1.14")
+    implementation("org.apache.avro:avro:1.12.0")
 
     // openapi stuff
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
