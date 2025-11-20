@@ -10,7 +10,9 @@ import reactor.core.publisher.Mono
 
 class TestRestApiPlugin : RestApiPlugin {
 
-    override fun getRouter(runtimeApi: RuntimeApi?): RouterFunction<ServerResponse> {
+    private var runtimeApi: RuntimeApi? = null
+
+    override fun getRouter(): RouterFunction<ServerResponse> {
         val plugin = this
         return router {
             GET(
@@ -21,10 +23,15 @@ class TestRestApiPlugin : RestApiPlugin {
         }
     }
 
+    override fun init(runtimeApi: RuntimeApi?) {
+        this.runtimeApi = runtimeApi
+    }
+
     private fun handleV1Test(request: ServerRequest): Mono<ServerResponse> {
         val success = { body: TestComponent -> ServerResponse.ok().bodyValue(body) }
         val failure = ServerResponse.badRequest().bodyValue(mapOf("error" to "Invalid input"))
         val body = request.bodyToMono(TestComponent::class.java)
         return body.flatMap(success).switchIfEmpty(failure)
     }
+
 }
