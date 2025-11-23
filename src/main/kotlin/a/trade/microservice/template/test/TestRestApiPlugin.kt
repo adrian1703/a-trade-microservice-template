@@ -1,5 +1,6 @@
 package a.trade.microservice.template.test
 
+import a.trade.microservice.runtime_api.AsyncTaskManager
 import a.trade.microservice.runtime_api.RestApiPlugin
 import a.trade.microservice.runtime_api.RuntimeApi
 import org.springframework.web.reactive.function.server.RouterFunction
@@ -25,6 +26,7 @@ class TestRestApiPlugin : RestApiPlugin {
 
     override fun init(runtimeApi: RuntimeApi?) {
         this.runtimeApi = runtimeApi
+        AsyncTaskManager(runtimeApi!!)
     }
 
     private fun handleV1Test(request: ServerRequest): Mono<ServerResponse> {
