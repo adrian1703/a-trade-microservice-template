@@ -7,4 +7,4 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./build/libs/a-trade-microservice-template-0.0.1.jar:/app/plugins/plugin.jar:z
+      - ./build/libs/a-trade-microservice-template-0.0.1-plain.jar:/app/plugins/plugin.jar:Z
